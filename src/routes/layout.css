@@ -1,0 +1,44 @@
+@import 'tailwindcss';
+
+:root {
+  --color-primary: #778873;
+  --color-secondary: #DCCFC0;
+  --color-bg: #FDF6ED;
+  --color-fg: #A1BC98;
+  --color-titles: #353f32;
+  --color-borders:#546450;
+}
+
+@font-face {
+  font-family: 'Oi';
+  src: url('/fonts/Oi-Regular.ttf') format('truetype');
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Fredoka';
+  src: url('/fonts/Fredoka-VariableFont_wdth,wght.ttf') format('truetype');
+  font-style: normal;
+  font-display: swap;
+}
+
+@theme {
+  --color-primary: var(--color-primary);
+  --color-secondary: var(--color-secondary);
+  --color-bg: var(--color-bg);
+  --color-fg: var(--color-fg);
+  --color-titles: var(--color-titles);
+  --color-borders: var(--color-borders);
+  --font-titles: 'Oi', sans-serif;
+  --font-sans: 'Fredoka', sans-serif;
+}
+
+h1, h2, h3, h4 {
+    color: var(--color-titles)
+}
+
+body {
+    font-family: var(--font-sans);
+    background-color: var(--color-bg);
+}
