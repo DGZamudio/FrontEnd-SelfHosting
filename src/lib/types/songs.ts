@@ -9,12 +9,14 @@ export interface CreateSongResponse {
         added_at    : string,
         artist_id   : number
     },
-    metadata : {
-        video_id  : string,
-        url       : string,
-        title     : string,
-        artist    : string,
-        album     : string,
-        thumbnail : string
-    } 
+    metadata : songTpye
+}
+
+export interface songTpye {
+    video_id  : string;
+    url       : string;
+    title     : string;
+    artist    : string;
+    album     : string;
+    thumbnail : string;
 }
