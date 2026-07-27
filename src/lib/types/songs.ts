@@ -9,7 +9,8 @@ export interface CreateSongResponse {
         added_at    : string,
         artist_id   : number
     },
-    metadata : songTpye
+    metadata : songTpye[],
+    type     : "album" | "song"
 }
 
 export interface songTpye {

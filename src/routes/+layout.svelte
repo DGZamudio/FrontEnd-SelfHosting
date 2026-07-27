@@ -3,6 +3,7 @@
 	import favicon from '$lib/assets/favicon.svg';
     import { resolve } from '$app/paths';
     import { EqualizerIcon } from 'phosphor-svelte'
+    import { Toaster } from 'svelte-sonner';
 
 	let { children } = $props();
 </script>
@@ -22,4 +23,5 @@
         <EqualizerIcon size={35} color="var(--color-secondary)"/>
     </div>
 </nav>
+<Toaster />
 {@render children()}
