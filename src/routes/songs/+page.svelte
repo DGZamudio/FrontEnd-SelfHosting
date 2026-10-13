@@ -3,6 +3,9 @@
     import { toast } from 'svelte-sonner';
     import { addSong } from '$lib/api/songs';
     import SongInput from "$lib/components/SongInput.svelte";
+    import AlbumDisplay from "$lib/components/AlbumDisplay.svelte";
+
+    let { data } = $props();
 
     let url           = $state<string>('')
     let songData      = $state<songTpye[]>([])
@@ -43,10 +46,8 @@
 </script>
 
 <div class="bg-secondary px-10 py-20 color-titles">
-    <div class="flex flex-col md:flex-row items-center justify-around">
-        <div class="max-w-1/2">
-            <h1 class="font-titles text-8xl">Descarga tus canciones favoritas</h1>
-        </div>
+    <div class="flex flex-col items-center justify-around">
+        <h1 class="font-titles text-center text-5xl md:text-6xl mb-10">Descarga tus canciones favoritas</h1>
         <SongInput
             bind:url
             songData={songData}
@@ -55,4 +56,14 @@
             handleAdd={handleAdd}
         />
     </div>
+</div>
+<h2 class="text-center text-4xl mt-10 w-full">Albums</h2>
+<div class="flex justify-around gap-8 md:gap-15 flex-wrap p-10 md:p-15">
+    {#if data.items}
+        {#each data.items as album (album.id)}
+            <AlbumDisplay
+                {...album}
+            />
+        {/each}
+    {/if}
 </div>

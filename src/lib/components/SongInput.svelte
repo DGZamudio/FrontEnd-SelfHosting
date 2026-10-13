@@ -17,7 +17,7 @@
     let { url = $bindable(), isLoading, songData, isPlaying, handleAdd }: Props = $props();
 </script>
 
-<div class="bg-primary rounded-lg p-5 flex flex-col gap-2 justify-center relative">
+<div class="shadow-2xl bg-primary rounded-xl border-2 border-slate-800 p-5 flex flex-col gap-2 justify-center relative">
     <SongsInfo visible={songData.length > 0} songData={songData}/>
 
     {#if isLoading}
@@ -31,8 +31,8 @@
             <div class="relative w-80 h-80">
                 <!-- el disco (plato) -->
                 <div class="absolute inset-0 bg-gray-900 rounded-full flex justify-center items-center">
-                    <div 
-                        style="background-image: url({songData?.[0]?.thumbnail ?? ""})" 
+                    <div
+                        style="background-image: url({songData?.[0]?.thumbnail ?? ""})"
                         class="bg-gray-500 bg-cover bg-center rounded-full flex justify-center items-center w-45 h-45"
                         class:spinning={isPlaying}
                     >
@@ -41,7 +41,7 @@
                 </div>
 
                 <!-- el brazo, superpuesto -->
-                <div 
+                <div
                     class="absolute top-2 right-6 w-2 h-24 bg-gray-300 rounded-full origin-top transition-transform duration-500"
                     style="transform: rotate({isPlaying ? -1 : -35}deg)"
                 >
@@ -50,15 +50,15 @@
             </div>
         </div>
     </div>
-    <form 
+    <form
         class="flex flex-col w-full gap-2"
         onsubmit={(event) => handleAdd(event, false)}
     >
         <div class="flex">
             <div class="flex bg-bg w-full border border-borders rounded-lg focus-within:ring-2 focus-within:ring-borders">
-                <input 
-                    class="p-3 flex-1 outline-none"
-                    type="url" 
+                <input
+                    class="transition px-4 py-3 flex-1 outline-none focus:ring-2 focus:ring-slate-800 rounded-lg"
+                    type="url"
                     bind:value={url}
                     onchange={() => handleAdd()}
                     placeholder="Ingresa la URL de la canción, álbum o playlist"
@@ -71,11 +71,11 @@
             </div>
 
             <button type="submit" disabled={isLoading} class="border border-borders cursor-pointer bg-primary hover:bg-borders transition rounded-lg justify-center items-center px-3">
-                <UploadSimpleIcon size={35} color='var(--color-bg)'/> 
+                <UploadSimpleIcon size={35} color='var(--color-bg)'/>
                 <!-- {#if localDownload}
                     <DownloadSimpleIcon size={35} color='var(--color-bg)'/>
                 {:else}
-                    
+
                 {/if} -->
             </button>
         </div>
